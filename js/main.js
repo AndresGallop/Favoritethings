@@ -16,7 +16,7 @@
     function showHideLightbox() {
 
         console.log('parcerito');
-      setTimeout(function(){lightbox.classList.toggle('show-lightbox');}, 500);
+      setTimeout(function(){lightbox.classList.toggle('show-lightbox');}, 200);
   
       //lbVideo.src = `video/House${this.dataset.vid}.mp4`;
     
