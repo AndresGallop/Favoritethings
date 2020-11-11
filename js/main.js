@@ -1,5 +1,8 @@
+import { fetchData } from "./modules/DataMiner.js";
+
 (()=> {
-    console.log('fired!');
+
+    console.log('loaded');
   
     let lightbox = document.querySelector(".lightboxes"),
         lbClose = lightbox.querySelector("span"),
@@ -12,31 +15,65 @@
   
   
   
+        function retrieveProjectInfo(event){
+            //test for an ID
+            // check for an id, and if there isn't one, then don't try the fetch call
+            // because it will break (the PHP will choke)
+            if (!event.target.id) {return}
+    
+            fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
+        }
   
     function showHideLightbox() {
 
         console.log('parcerito');
       setTimeout(function(){lightbox.classList.toggle('show-lightbox');}, 200);
-  
-      //lbVideo.src = `video/House${this.dataset.vid}.mp4`;
     
   }
+
+  function renderPortfolioThumbnails(thumbs) {
+    let  thingsSection = document.querySelector('.things-section');
+    let thingTemplate = document.querySelector('#things-template').content;
+    //let template = document.querySelector('.thingy').children;
+        
+
+   
+    for (let thing in thumbs) {
+        let currentThing = thingTemplate.cloneNode(true),
+            currentThingText = currentThing.querySelector('.thing').children;
+            let usuario = document.querySelectorAll(".thing");
+
+            
+
+        currentThingText[1].src = `images/${thumbs[thing].avatar}`; 
+        currentThingText[1].id = thumbs[thing].id;  // Esta mierda es para obtener los datos (se ven en la consola), no se ven en la pantalla.
+
+        currentThingText[1].innerHTML = `${thumbs[thing].Thing}`;
+        currentThingText[3].innerHTML = `${thumbs[thing].nickname}`;
+        currentThingText[4].innerHTML = `${thumbs[thing].role}`;
+
+        //  function showtext(){
+                
+        //     currentThingText[2].classList.toggle('show-name');
+        //      currentThingText[3].classList.toggle('show-nickname');  // TREVOR - I need to find out how to indicate JS that I want this function
+        //     currentThingText[4].classList.toggle('show-role');      // to happen in the selected user. I tried ${this} but did not work.
+        //  }
+        //     usuario.forEach(useri =>useri.addEventListener("click", showtext)); 
+
+    
+        // add this new user to the view
+        thingsSection.appendChild(currentThing);
+    }
+
+    thingsSection.addEventListener("click", retrieveProjectInfo);   
+      
+
+}
   
-  
-//   function animateBanner() {
-  
-//     //and also show the house name
-//     thequote.textContent = `House ${houseInfo[this.dataset.offset][0]}`;
-//     thereco.textContent = `${houseInfo[this.dataset.offset][1]}`;
-//     //debugger;
-//   }
-  
-    //things.forEach(sigil => sigil.addEventListener("click", showHideLightbox));
-  
-//things.forEach(sigil => sigil.addEventListener("click", animateBanner));
+    fetchData('./includes/index.php').then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));  
+
     things.forEach(sigil => sigil.addEventListener('click', showHideLightbox));
   
     lbClose.addEventListener("click", showHideLightbox);
-    // lbClose.addEventListener("click", again);
   
   })();
