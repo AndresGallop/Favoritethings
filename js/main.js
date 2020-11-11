@@ -1,29 +1,31 @@
 import { fetchData } from "./modules/DataMiner.js";
 
-(()=> {
+(() => {
+
+    // let useras = document.querySelector(".user"); 
 
     console.log('loaded');
-  
-    let lightbox = document.querySelector(".lightboxes"),
-        lbClose = lightbox.querySelector("span"),
-        //lbVideo = lightBox.querySelector("video"),
-  
-        things = document.querySelectorAll(".thing"),
-        //houseImages = document.querySelector("#houseImages"),
-        thequote = document.querySelector(".quote"),
-        thereco = document.querySelector(".recome");
-  
-  
-  
-        function retrieveProjectInfo(event){
-            //test for an ID
-            // check for an id, and if there isn't one, then don't try the fetch call
-            // because it will break (the PHP will choke)
-            if (!event.target.id) {return}
-    
-            fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
-        }
-  
+
+    let lightBox = document.querySelector(".lightbox"),
+        thingo = document.querySelectorAll(".thing"),
+        lbClose = lightBox.querySelector("span");
+
+    // this receives the data payload from our AJAX request, parses it (turns the returned JSON object back into a plain JavaScript object) and renders the data to our view (the markup in index.html)
+    //  function handleDataSet(thumbs) {
+            
+    //  }
+
+    // function retrieveProjectInfo(event){
+    //     //test for an ID
+    //     // check for an id, and if there isn't one, then don't try the fetch call
+    //     // because it will break (the PHP will choke)
+    //     if (!event.target.id) {return}
+
+    //     let userPieces = event.target.parentElement.children;
+
+    //     fetchData(`./includes/index.php?id=${event.target.id}`).then(data => showtext(data, userPieces)).catch(err => console.log(err));
+    // }
+
     function showHideLightbox() {
 
         console.log('parcerito');
@@ -31,49 +33,65 @@ import { fetchData } from "./modules/DataMiner.js";
     
   }
 
-  function renderPortfolioThumbnails(thumbs) {
-    let  thingsSection = document.querySelector('.things-section');
-    let thingTemplate = document.querySelector('#things-template').content;
-    //let template = document.querySelector('.thingy').children;
-        
-
-   
-    for (let thing in thumbs) {
-        let currentThing = thingTemplate.cloneNode(true),
-            currentThingText = currentThing.querySelector('.thing').children;
-            let usuario = document.querySelectorAll(".thing");
-
+    function renderPortfolioThumbnails(thumbs) {
+        let  userSection = document.querySelector('.things-section');
+        let userTemplate = document.querySelector('#things-template').content;
+        //let template = document.querySelector('#user-template').children;
             
 
-        currentThingText[1].src = `images/${thumbs[thing].avatar}`; 
-        currentThingText[1].id = thumbs[thing].id;  // Esta mierda es para obtener los datos (se ven en la consola), no se ven en la pantalla.
+       
+        for (let thing in thumbs) {
+            let currentUser = userTemplate.cloneNode(true),
+                currentUserText = currentUser.querySelector('.thing').children;
+            
 
-        currentThingText[1].innerHTML = `${thumbs[thing].Thing}`;
-        currentThingText[3].innerHTML = `${thumbs[thing].nickname}`;
-        currentThingText[4].innerHTML = `${thumbs[thing].role}`;
+            currentUserText[1].innerHTML = thumbs[thing].Thing; 
+            //currentUserText[1].src = `images/${thumbs[thing].avatar}`; 
+            currentUserText[1].id = thumbs[thing].id;  // Esta mierda es para obtener los datos (se ven en la consola), no se ven en la pantalla.
 
-        //  function showtext(){
-                
-        //     currentThingText[2].classList.toggle('show-name');
-        //      currentThingText[3].classList.toggle('show-nickname');  // TREVOR - I need to find out how to indicate JS that I want this function
-        //     currentThingText[4].classList.toggle('show-role');      // to happen in the selected user. I tried ${this} but did not work.
-        //  }
-        //     usuario.forEach(useri =>useri.addEventListener("click", showtext)); 
+             
 
-    
-        // add this new user to the view
-        thingsSection.appendChild(currentThing);
+        
+            // add this new user to the view
+            userSection.appendChild(currentUser);
+        }
+
+        //userSection.addEventListener("click", retrieveProjectInfo);   
+          
+
     }
 
-    thingsSection.addEventListener("click", retrieveProjectInfo);   
-      
+    function showtext(person, elements) {
+        // debugger;
 
-}
-  
-    fetchData('./includes/index.php').then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));  
+        elements[2].innerHTML = person[0].name;  
+        elements[3].innerHTML = person[0].nickname;
+        elements[4].innerHTML = person[0].role;
 
-    things.forEach(sigil => sigil.addEventListener('click', showHideLightbox));
+        elements[2].classList.toggle('show-name');
+        elements[3].classList.toggle('show-nickname');  // TREVOR - I need to find out how to indicate JS that I want this function
+        elements[4].classList.toggle('show-role');      // to happen in the selected user. I tried ${this} but did not work.
+    }
+    // function showtext(){
+
+    //     let name = document.querySelector(".user-name"),
+    //         nickname = document.querySelector(".user-nickname"),
+    //         role = document.querySelector(".user-role");
+            
+
+    //     name.classList.toggle('show-name');
+    //     nickname.classList.toggle('show-nickname');
+    //     role.classList.toggle('show-role');
+    // }
+
+    // useras.addEventListener("click", showtext);
+
+    
+
+    fetchData('./includes/index.php').then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));
+
+    thingo.forEach(sigil => sigil.addEventListener('click', showHideLightbox));
   
     lbClose.addEventListener("click", showHideLightbox);
-  
-  })();
+
+})();
