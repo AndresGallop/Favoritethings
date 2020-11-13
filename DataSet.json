@@ -1,5 +1,5 @@
 {
     "Painting":{"Thing":"Painting","Img":"paint.jpeg","Quote":"A true painting of the smallest man is able to interest the greatest man. Thomas Carlyle.", "Recommendation":"Venice grand canal by Leonid Afremov."},
     "Working out":{"Thing":"Working Out","Img":"excersice.jpeg","Quote":"Quality is not an act. Aristotle", "Recommendation":"Dwayne johnson."},
-    "Reading":{"Thing":"Reading","Img":"read.jpg","Quote":"No matter how busy you think you are, you must find time to read, or indulge in self-chosen ignorance. Confucius.", "Recommendation":"The Godfather by Mario Puzo."},
+    "Reading":{"Thing":"Reading","Img":"read.jpg","Quote":"No matter how busy you think you are, you must find time to read, or indulge in self-chosen ignorance. Confucius.", "Recommendation":"The Godfather by Mario Puzo."}
   }

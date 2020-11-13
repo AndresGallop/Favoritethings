@@ -6,25 +6,25 @@ import { fetchData } from "./modules/DataMiner.js";
 
     console.log('loaded');
 
-    let lightBox = document.querySelector(".lightbox"),
+    let lightbox = document.querySelector(".lightbox"),
         thingo = document.querySelectorAll(".thing"),
-        lbClose = lightBox.querySelector("span");
+        lbClose = lightbox.querySelector("span");
 
     // this receives the data payload from our AJAX request, parses it (turns the returned JSON object back into a plain JavaScript object) and renders the data to our view (the markup in index.html)
     //  function handleDataSet(thumbs) {
             
     //  }
 
-    // function retrieveProjectInfo(event){
-    //     //test for an ID
-    //     // check for an id, and if there isn't one, then don't try the fetch call
-    //     // because it will break (the PHP will choke)
-    //     if (!event.target.id) {return}
+    function retrieveProjectInfo(event){
+        //test for an ID
+        // check for an id, and if there isn't one, then don't try the fetch call
+        // because it will break (the PHP will choke)
+        if (!event.target.id) {return}
+    
+      let userPieces = event.target.parentElement.children;
 
-    //     let userPieces = event.target.parentElement.children;
-
-    //     fetchData(`./includes/index.php?id=${event.target.id}`).then(data => showtext(data, userPieces)).catch(err => console.log(err));
-    // }
+        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => showtext(data, userPieces)).catch(err => console.log(err));
+     }
 
     function showHideLightbox() {
 
@@ -56,8 +56,7 @@ import { fetchData } from "./modules/DataMiner.js";
             userSection.appendChild(currentUser);
         }
 
-        //userSection.addEventListener("click", retrieveProjectInfo);   
-          
+        //userSection.addEventListener("click", retrieveProjectInfo);       
 
     }
 
