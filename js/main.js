@@ -56,7 +56,7 @@ import { fetchData } from "./modules/DataMiner.js";
             userSection.appendChild(currentUser);
         }
 
-        //userSection.addEventListener("click", retrieveProjectInfo);       
+        //userSection.addEventListener("click", retrieveProjectInfo);   g    
 
     }
 
