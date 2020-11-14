@@ -42,7 +42,7 @@
 
 .quote{
     color: lightyellow;
-    //background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     grid-area: seis;
     width: 80%;
     height: auto;
@@ -54,8 +54,8 @@
 .imagen{
     width: 100%;
     height: 100%;
-    background-color: sandybrown;
     grid-area: cinco;
+    object-fit: cover;
 }
 
 .recome{
@@ -67,6 +67,7 @@
     justify-self: center;
     align-self: start;
     padding-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .close{
