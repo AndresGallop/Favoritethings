@@ -1,0 +1,36 @@
+# Favourite Things
+
+This is a project that shows my three favorite things in the world;
+It is going to use dynamic data fetched from a .sql database and rendered in html.
+
+## Tools used
+
+For this project I am going to use a Database(.sql file), HTML, CSS(Sass method), JS(Modules type) and JSON file with the AJAX method. 
+
+## Usage
+
+The code here will allow me to render dynamic data in a web site. This code will be used to make my portfolio as well.
+
+## Road map
+
+1. Create the database with 4 columns and 3 rows; parameters : id, Thing, Recommendation, Quote and Img.
+2. Create the layout in html and then stylize it with CSS using Sass modules to make it more organized.
+3. Create PHP files. Requesting the data and functions.
+4. Creating JS files that will allow me to pop up a lightbox with more dynamic data.
+5. Creating a Error handler in case the data never comes and could not be fetched.
+
+## Conditions
+
+1. Making a database.
+2. Making a Read me file.
+3. Making Error handler. In this case I made one for the console and one for the screen(Pop up Box).
+4. Making a lightBox to show more dynamic data.
+
+## Credits
+
+Andres Gallo
+
+## License
+
+The content of this project itself is licensed under the Creative Commons Attribution 3.0 Unported license, and the 
+underlying source code used to format and display that content is licensed under the MIT license.
