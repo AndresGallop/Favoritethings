@@ -7,7 +7,7 @@ import { fetchData } from "./modules/DataMiner.js";
     console.log('loaded');
 
     let lightbox = document.querySelector(".lightbox"),
-        //lacosa = document.querySelectorAll(".thing"),
+        lacosa = document.querySelectorAll(".thing"),
         lbClose = lightbox.querySelector("span");
 
     // this receives the data payload from our AJAX request, parses it (turns the returned JSON object back into a plain JavaScript object) and renders the data to our view (the markup in index.html)
@@ -29,6 +29,8 @@ import { fetchData } from "./modules/DataMiner.js";
      }
 
      function showHideLightbox() {
+
+        
 
         console.log('parcerito');
       setTimeout(function(){lightbox.classList.toggle('show-lightbox');}, 200);
@@ -52,9 +54,9 @@ import { fetchData } from "./modules/DataMiner.js";
             
 
             currentUserText[0].innerHTML = thumbs[thing].Thing; 
-            //currentUserText[1].src = `images/${thumbs[thing].avatar}`; 
+            currentUserText[1].src = `images/${thumbs[thing].Img}`; 
             currentUserText[1].id = thumbs[thing].id;  // Esta mierda es para obtener los datos (se ven en la consola), no se ven en la pantalla.
-           // lacosa.style.background = `images/${thumbs[thing].Img}`;
+           //    lacosa.style.background = `images/${thumbs[thing].Img}`;
 
 
              
@@ -68,17 +70,17 @@ import { fetchData } from "./modules/DataMiner.js";
 
     }
 
-    function showtext(person, elements) {
-        // debugger;
+    // function showtext(person, elements) {
+    //     // debugger;
 
-        elements[2].innerHTML = person[0].name;  
-        elements[3].innerHTML = person[0].nickname;
-        elements[4].innerHTML = person[0].role;
+    //     elements[2].innerHTML = person[0].name;  
+    //     elements[3].innerHTML = person[0].nickname;
+    //     elements[4].innerHTML = person[0].role;
 
-        elements[2].classList.toggle('show-name');
-        elements[3].classList.toggle('show-nickname');  // TREVOR - I need to find out how to indicate JS that I want this function
-        elements[4].classList.toggle('show-role');      // to happen in the selected user. I tried ${this} but did not work.
-    }
+    //     elements[2].classList.toggle('show-name');
+    //     elements[3].classList.toggle('show-nickname');  // TREVOR - I need to find out how to indicate JS that I want this function
+    //     elements[4].classList.toggle('show-role');      // to happen in the selected user. I tried ${this} but did not work.
+    // }
     // function showtext(){
 
     //     let name = document.querySelector(".user-name"),
