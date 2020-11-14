@@ -19,26 +19,40 @@
         <a class="contact" href="#"><button>Contact</button></a>
     </header>
 
-    <div class="title"><h1>My Favourite things</h1></div>
+    <div class="title"><h1>My Favorite things</h1></div>
 
-    <div class="things">
-        <div class="thing one">
+    <section class="lightboxes">
+    <div class="lightbox">
+         <span class="close">x</span> <!--index 0 -->
+        <p class="quote">QUOTE</p> <!--index 1 -->
+        <img class="imagen" src="" alt=""> <!--index 2 -->
+        <p class="recome">RECOMMENDATION</p> <!--index 3 -->
+    </div>
+    </section>
+    
+
+    <section class="things-section"></section> <!--userTemplate-->
+
+    <template id="things-template"> <!--user-->
+        <div class="thing">
             <!-- <img src="paint.jpg" alt="paint"> -->
-            <h2>Painting</h2>
+            <h2></h2>
+            <img class="pic" src="" alt="cosas">
         </div>
-        <div class="thing two">
-            <!-- <img src="excersice.jpg" alt="workout"> -->
+    </template>
+        <!-- <div class="thing two">
+             <img src="excersice.jpg" alt="workout">
             <h2>Working out</h2>
         </div>
         <div class="thing three">
-            <!-- <img src="read.jpg" alt="reading"> -->
+             <img src="read.jpg" alt="reading"> 
             <h2>Reading</h2>
-        </div>
-    </div>
+        </div> -->
+    
 
     <footer>
         <p>footer</p>
     </footer>
-    
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

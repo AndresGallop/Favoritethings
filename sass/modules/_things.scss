@@ -1,4 +1,4 @@
-.things{
+.things-section{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -6,73 +6,62 @@
     width: 100%;
     height: auto;
     background-color: pink;
+    position: absolute;
+   // z-index: 1;
 }
 
 .thing{
     width: 100%;
     height: 500px;
-    background-color: peachpuff;
+    background-color: #141518;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.one{
-    background-image: url(../images/paint.jpeg);
+   // background-image: url(../images/paint.jpeg);
     background-position: center;
     background-size: cover;
+    z-index: 100;
 
-    
+    h2{
+        z-index: 0;
+        position: absolute;
+    }
 }
 
-
-.two{
-    background-image: url(../images/excersice.jpeg);
-    background-position: center 29%;
-    background-size: cover;
-}
-
-
-
-.three{
-    background-image: url(../images/read.jpg);
-    background-position: center 29%;
-    background-size: cover;
-}
-
-.one:hover{
+.thing:hover{
     cursor: pointer;
     background-position: center 30%;
     background-size: cover;
     transition: all 0.5s ease 0s;
 
     h2{
+        //padding-left: ;
+        
         font-size: 90px;
         transition: all 0.5s ease 0s;
+
+        
+    }
+
+    img{
+        transition: all 0.5s ease 0s scale(1.5);
+        
     }
 }
 
-.two:hover{
-    cursor: pointer;
-    background-position: 75% 0;
-    background-size: cover;
-    transition: all 0.5s ease 0s;
-    h2{
-        font-size: 90px;
-        transition: all 0.5s ease 0s;
-    }
+.pic{
+    width: 100%;
+    height: 100%;
+    //position: absolute;
+    display: block;
+    object-fit: cover;
+    //z-index: 10;
 }
 
-.three:hover{
-    cursor: pointer;
-    background-position: 75% 0;
-    background-size: cover;
-    transition: all 0.5s ease 0s;
-    h2{
-        font-size: 90px;
-        transition: all 0.5s ease 0s;
-    }
+.pic:hover{
+    transition: all 0.5s ease 0s scale(1.5);
 }
+
 
 h2{
     text-align: center;
