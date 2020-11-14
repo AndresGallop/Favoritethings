@@ -6,7 +6,7 @@ import { fetchData } from "./modules/DataMiner.js";
 
     console.log('loaded');
 
-    let lightbox = document.querySelector(".lightbox"),
+    let lightbox = document.querySelector(".lightboxes"),
         lacosa = document.querySelectorAll(".thing"),
         lbClose = lightbox.querySelector("span");
 
@@ -25,7 +25,7 @@ import { fetchData } from "./modules/DataMiner.js";
     
       let userPieces = event.target.parentElement.children;
 
-        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => showtext(data, userPieces)).catch(err => console.log(err));
+        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => showHideLightbox(data, userPieces)).catch(err => console.log(err));
      }
 
      function showHideLightbox() {
@@ -33,7 +33,8 @@ import { fetchData } from "./modules/DataMiner.js";
         
 
         console.log('parcerito');
-      setTimeout(function(){lightbox.classList.toggle('show-lightbox');}, 200);
+      setTimeout(function(){lightbox.classList.toggle('show-lightboxes');}, 200);
+      
     
   }
 
@@ -59,6 +60,8 @@ import { fetchData } from "./modules/DataMiner.js";
            //    lacosa.style.background = `images/${thumbs[thing].Img}`;
 
 
+
+
              
 
         
@@ -66,9 +69,44 @@ import { fetchData } from "./modules/DataMiner.js";
             userSection.appendChild(currentUser);
         }
 
-        //userSection.addEventListener("click", retrieveProjectInfo);   g    
+        userSection.addEventListener("click", retrieveProjectInfo);    
 
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // function renderLightBoxinfo(datos) {
+    //     let  userSection = document.querySelector('.things-section');
+    //     let userTemplate = document.querySelector('#things-template').content;
+    //     let lacosa = document.querySelectorAll(".thing");
+    //     //let template = document.querySelector('#user-template').children;
+            
+
+       
+    //     for (let pedazos in datos) {
+    //         let currentUser = userTemplate.cloneNode(true),
+    //             currentUserText = currentUser.querySelector('.thing').children;
+
+            
+
+    //         currentUserText[0].innerHTML = datos[pedazos].Thing; 
+    //         currentUserText[1].src = `images/${datos[pedazos].Img}`; 
+    //         currentUserText[1].id = datos[pedazos].id;  // Esta mierda es para obtener los datos (se ven en la consola), no se ven en la pantalla.
+    //        //    lacosa.style.background = `images/${thumbs[thing].Img}`;
+
+           
+
+
+             
+
+        
+    //         // add this new user to the view
+    //         userSection.appendChild(currentUser);
+    //     }
+
+    //     userSection.addEventListener("click", retrieveProjectInfo);    
+
+    // }
 
     // function showtext(person, elements) {
     //     // debugger;
@@ -98,6 +136,8 @@ import { fetchData } from "./modules/DataMiner.js";
     
 
     fetchData('./includes/index.php').then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));
+
+    //fetchData('./includes/index.php').then(data => renderLightBoxinfo(data)).catch(err => console.log(err));
 
     lacosa.forEach(sigil => sigil.addEventListener("click", showHideLightbox));
   
